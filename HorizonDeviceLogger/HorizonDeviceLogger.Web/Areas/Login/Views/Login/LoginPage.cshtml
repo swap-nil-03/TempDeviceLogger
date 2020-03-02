@@ -1,0 +1,133 @@
+﻿@model HorizonDeviceLogger.Models.Models.Login.LoginModel
+@{
+    Layout = null;
+    ViewBag.Title = "DigWiz Login Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>DigWiz Login Page</title>
+    @*<link href="~/Content/AdminLteTheme/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/AdminLteTheme/dist/css/adminlte.css" rel="stylesheet" />*@
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/AdminLteTheme/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Content/AdminLteTheme/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/AdminLteTheme/dist/css/adminlte.min.css">
+
+</head>
+<style>
+    .SbAlertClass {
+        position: absolute !important;
+        top: 30px;
+        right: 12px;
+    }
+</style>
+
+
+@if (@TempData["AlertClass"] != null)
+{
+    <div class="alert @TempData["AlertClass"].ToString() alert-dismissible SbAlertClass">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5>
+           Alert!
+        </h5>
+        @TempData["UserMassage"].ToString()
+    </div>
+}
+
+<body class="hold-transition login-page">
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>Admin</b>Login</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @*<form action="~/Content/AdminLteTheme/index3.html" method="post">*@
+                    <div class="input-group mb-3">
+
+                        @Html.EditorFor(model => model.User_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "User Name" } })
+
+                        @*<input type="email" class="form-control" placeholder="Email">*@
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.User_name, "", new { @class = "col-md-12 text-danger" })
+                    </div>
+                    <div class="input-group mb-3">
+
+                        @Html.PasswordFor(model => model.Pass_word, new { @class = "form-control", @placeholder = "Password" })
+
+                        @*<input type="password" class="form-control" placeholder="Password">*@
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Pass_word, "", new { @class = "col-md-12 text-danger" })
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    @*</form>*@
+                }
+
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+
+    <!-- jQuery 2.0.2 -->
+
+    <script src="~/Content/AdminLteTheme/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/AdminLteTheme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/AdminLteTheme/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            if (@Model.IsValid== false) {
+
+                alert("Username and password is incorrect.");
+
+            }
+        });
+
+    </script>*@
+

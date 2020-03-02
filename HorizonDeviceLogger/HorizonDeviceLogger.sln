@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Web", "HorizonDeviceLogger.Web\HorizonDeviceLogger.Web.csproj", "{BB968148-B18A-47C5-93FD-BDD1BA9D390D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Repository", "HorizonDeviceLogger.Repository\HorizonDeviceLogger.Repository.csproj", "{FB03970C-A751-4657-BD6B-D990AB1D9BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Adapter", "HorizonDeviceLogger.Adapter\HorizonDeviceLogger.Adapter.csproj", "{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Infra", "HorizonDeviceLogger.Infra\HorizonDeviceLogger.Infra.csproj", "{6E9FD08C-0068-490D-9599-A7657E295443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.ActionInterfaces", "HorizonDeviceLogger.ActionInterfaces\HorizonDeviceLogger.ActionInterfaces.csproj", "{BDED5509-F4C8-4CA4-982A-6B69F554D6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Action", "HorizonDeviceLogger.Action\HorizonDeviceLogger.Action.csproj", "{B1B53399-E5F3-47FD-AE28-DEDEC5CC6438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.AdapterInterfaces", "HorizonDeviceLogger.AdapterInterfaces\HorizonDeviceLogger.AdapterInterfaces.csproj", "{1CD390F0-7B82-4B40-BC1D-406425395908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.RepositoryInterfaces", "HorizonDeviceLogger.RepositoryInterfaces\HorizonDeviceLogger.RepositoryInterfaces.csproj", "{3AB884B5-5CD3-4FB4-B1E4-5399B80AC092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.DB", "HorizonDeviceLogger.DB\HorizonDeviceLogger.DB.csproj", "{1D8E4155-A487-4202-9CE8-7213127FD691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Models", "HorizonDeviceLogger.Models\HorizonDeviceLogger.Models.csproj", "{F22BCEDD-89B1-4676-945B-F8D860648279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonDeviceLogger.Documentation", "HorizonDeviceLogger.Documentation\HorizonDeviceLogger.Documentation.csproj", "{F64AC75B-A1E4-4365-980C-56D11C32D138}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB968148-B18A-47C5-93FD-BDD1BA9D390D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB968148-B18A-47C5-93FD-BDD1BA9D390D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB968148-B18A-47C5-93FD-BDD1BA9D390D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB968148-B18A-47C5-93FD-BDD1BA9D390D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB03970C-A751-4657-BD6B-D990AB1D9BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB03970C-A751-4657-BD6B-D990AB1D9BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB03970C-A751-4657-BD6B-D990AB1D9BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB03970C-A751-4657-BD6B-D990AB1D9BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E9FD08C-0068-490D-9599-A7657E295443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E9FD08C-0068-490D-9599-A7657E295443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E9FD08C-0068-490D-9599-A7657E295443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E9FD08C-0068-490D-9599-A7657E295443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDED5509-F4C8-4CA4-982A-6B69F554D6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDED5509-F4C8-4CA4-982A-6B69F554D6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDED5509-F4C8-4CA4-982A-6B69F554D6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDED5509-F4C8-4CA4-982A-6B69F554D6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B53399-E5F3-47FD-AE28-DEDEC5CC6438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B53399-E5F3-47FD-AE28-DEDEC5CC6438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B53399-E5F3-47FD-AE28-DEDEC5CC6438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B53399-E5F3-47FD-AE28-DEDEC5CC6438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD390F0-7B82-4B40-BC1D-406425395908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD390F0-7B82-4B40-BC1D-406425395908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD390F0-7B82-4B40-BC1D-406425395908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD390F0-7B82-4B40-BC1D-406425395908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB884B5-5CD3-4FB4-B1E4-5399B80AC092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB884B5-5CD3-4FB4-B1E4-5399B80AC092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB884B5-5CD3-4FB4-B1E4-5399B80AC092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB884B5-5CD3-4FB4-B1E4-5399B80AC092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8E4155-A487-4202-9CE8-7213127FD691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8E4155-A487-4202-9CE8-7213127FD691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8E4155-A487-4202-9CE8-7213127FD691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8E4155-A487-4202-9CE8-7213127FD691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22BCEDD-89B1-4676-945B-F8D860648279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22BCEDD-89B1-4676-945B-F8D860648279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22BCEDD-89B1-4676-945B-F8D860648279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22BCEDD-89B1-4676-945B-F8D860648279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64AC75B-A1E4-4365-980C-56D11C32D138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64AC75B-A1E4-4365-980C-56D11C32D138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64AC75B-A1E4-4365-980C-56D11C32D138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64AC75B-A1E4-4365-980C-56D11C32D138}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {186FC7CE-5060-4921-9C62-4757E61BB740}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IOTLoggerModelStoreContainer" CdmEntityContainer="IOTLoggerEntities1">
+    <EntitySetMapping Name="LoginMsts">
+      <EntityTypeMapping TypeName="IOTLoggerModel.LoginMst">
+        <MappingFragment StoreEntitySet="LoginMst">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EncryptPwd" ColumnName="EncryptPwd" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMsts">
+      <EntityTypeMapping TypeName="IOTLoggerModel.RoleMst">
+        <MappingFragment StoreEntitySet="RoleMst">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMsts">
+      <EntityTypeMapping TypeName="IOTLoggerModel.UserMst">
+        <MappingFragment StoreEntitySet="UserMst">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertConfigs">
+      <EntityTypeMapping TypeName="IOTLoggerModel.AlertConfig">
+        <MappingFragment StoreEntitySet="AlertConfigs">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ForColumn" ColumnName="ForColumn" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="AlertTypeId" ColumnName="AlertTypeId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="AlertConfigId" ColumnName="AlertConfigId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertTypes">
+      <EntityTypeMapping TypeName="IOTLoggerModel.AlertType">
+        <MappingFragment StoreEntitySet="AlertTypes">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="DemoMessage4" ColumnName="DemoMessage4" />
+          <ScalarProperty Name="DemoMessage3" ColumnName="DemoMessage3" />
+          <ScalarProperty Name="DemoMessage2" ColumnName="DemoMessage2" />
+          <ScalarProperty Name="DemoMessage1" ColumnName="DemoMessage1" />
+          <ScalarProperty Name="MsgBody" ColumnName="MsgBody" />
+          <ScalarProperty Name="MsgTitle" ColumnName="MsgTitle" />
+          <ScalarProperty Name="MsgSubject" ColumnName="MsgSubject" />
+          <ScalarProperty Name="AlertType1" ColumnName="AlertType" />
+          <ScalarProperty Name="AlertTypeId" ColumnName="AlertTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceLogs">
+      <EntityTypeMapping TypeName="IOTLoggerModel.DeviceLog">
+        <MappingFragment StoreEntitySet="DeviceLogs">
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="KVAR" ColumnName="KVAR" />
+          <ScalarProperty Name="KVA" ColumnName="KVA" />
+          <ScalarProperty Name="KW" ColumnName="KW" />
+          <ScalarProperty Name="DO4" ColumnName="DO4" />
+          <ScalarProperty Name="DO3" ColumnName="DO3" />
+          <ScalarProperty Name="DO2" ColumnName="DO2" />
+          <ScalarProperty Name="DO1" ColumnName="DO1" />
+          <ScalarProperty Name="DI8" ColumnName="DI8" />
+          <ScalarProperty Name="DI7" ColumnName="DI7" />
+          <ScalarProperty Name="DI6" ColumnName="DI6" />
+          <ScalarProperty Name="DI5" ColumnName="DI5" />
+          <ScalarProperty Name="DI4" ColumnName="DI4" />
+          <ScalarProperty Name="DI3" ColumnName="DI3" />
+          <ScalarProperty Name="DI2" ColumnName="DI2" />
+          <ScalarProperty Name="DI1" ColumnName="DI1" />
+          <ScalarProperty Name="AI8" ColumnName="AI8" />
+          <ScalarProperty Name="AI7" ColumnName="AI7" />
+          <ScalarProperty Name="AI6" ColumnName="AI6" />
+          <ScalarProperty Name="AI5" ColumnName="AI5" />
+          <ScalarProperty Name="AI4" ColumnName="AI4" />
+          <ScalarProperty Name="AI3" ColumnName="AI3" />
+          <ScalarProperty Name="AI2" ColumnName="AI2" />
+          <ScalarProperty Name="AI1" ColumnName="AI1" />
+          <ScalarProperty Name="deviceID" ColumnName="deviceID" />
+          <ScalarProperty Name="PASM" ColumnName="PASM" />
+          <ScalarProperty Name="PAAV" ColumnName="PAAV" />
+          <ScalarProperty Name="PFSM" ColumnName="PFSM" />
+          <ScalarProperty Name="PFAV" ColumnName="PFAV" />
+          <ScalarProperty Name="VASM" ColumnName="VASM" />
+          <ScalarProperty Name="VAAVG" ColumnName="VAAVG" />
+          <ScalarProperty Name="W_SM" ColumnName="W_SM" />
+          <ScalarProperty Name="W_AV" ColumnName="W_AV" />
+          <ScalarProperty Name="ISM" ColumnName="ISM" />
+          <ScalarProperty Name="IAVG" ColumnName="IAVG" />
+          <ScalarProperty Name="VSM" ColumnName="VSM" />
+          <ScalarProperty Name="VAVG" ColumnName="VAVG" />
+          <ScalarProperty Name="PA3" ColumnName="PA3" />
+          <ScalarProperty Name="PA2" ColumnName="PA2" />
+          <ScalarProperty Name="PA1" ColumnName="PA1" />
+          <ScalarProperty Name="PFB" ColumnName="PFB" />
+          <ScalarProperty Name="PFY" ColumnName="PFY" />
+          <ScalarProperty Name="PFR" ColumnName="PFR" />
+          <ScalarProperty Name="KVAH" ColumnName="KVAH" />
+          <ScalarProperty Name="KWH" ColumnName="KWH" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="BR" ColumnName="BR" />
+          <ScalarProperty Name="YB" ColumnName="YB" />
+          <ScalarProperty Name="RY" ColumnName="RY" />
+          <ScalarProperty Name="VAR_B" ColumnName="VAR_B" />
+          <ScalarProperty Name="VAR_Y" ColumnName="VAR_Y" />
+          <ScalarProperty Name="VAR_R" ColumnName="VAR_R" />
+          <ScalarProperty Name="VA_B" ColumnName="VA_B" />
+          <ScalarProperty Name="VA_Y" ColumnName="VA_Y" />
+          <ScalarProperty Name="VA_R" ColumnName="VA_R" />
+          <ScalarProperty Name="W_B" ColumnName="W_B" />
+          <ScalarProperty Name="W_Y" ColumnName="W_Y" />
+          <ScalarProperty Name="W_R" ColumnName="W_R" />
+          <ScalarProperty Name="IB" ColumnName="IB" />
+          <ScalarProperty Name="IY" ColumnName="IY" />
+          <ScalarProperty Name="IR" ColumnName="IR" />
+          <ScalarProperty Name="VBN" ColumnName="VBN" />
+          <ScalarProperty Name="VYN" ColumnName="VYN" />
+          <ScalarProperty Name="VRN" ColumnName="VRN" />
+          <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceLogs2">
+      <EntityTypeMapping TypeName="IOTLoggerModel.DeviceLogs2">
+        <MappingFragment StoreEntitySet="DeviceLogs2">
+          <ScalarProperty Name="KVAR" ColumnName="KVAR" />
+          <ScalarProperty Name="KVA" ColumnName="KVA" />
+          <ScalarProperty Name="KW" ColumnName="KW" />
+          <ScalarProperty Name="DO4" ColumnName="DO4" />
+          <ScalarProperty Name="DO3" ColumnName="DO3" />
+          <ScalarProperty Name="DO2" ColumnName="DO2" />
+          <ScalarProperty Name="DO1" ColumnName="DO1" />
+          <ScalarProperty Name="DI8" ColumnName="DI8" />
+          <ScalarProperty Name="DI7" ColumnName="DI7" />
+          <ScalarProperty Name="DI6" ColumnName="DI6" />
+          <ScalarProperty Name="DI5" ColumnName="DI5" />
+          <ScalarProperty Name="DI4" ColumnName="DI4" />
+          <ScalarProperty Name="DI3" ColumnName="DI3" />
+          <ScalarProperty Name="DI2" ColumnName="DI2" />
+          <ScalarProperty Name="DI1" ColumnName="DI1" />
+          <ScalarProperty Name="AI8" ColumnName="AI8" />
+          <ScalarProperty Name="AI7" ColumnName="AI7" />
+          <ScalarProperty Name="AI6" ColumnName="AI6" />
+          <ScalarProperty Name="AI5" ColumnName="AI5" />
+          <ScalarProperty Name="AI4" ColumnName="AI4" />
+          <ScalarProperty Name="AI3" ColumnName="AI3" />
+          <ScalarProperty Name="AI2" ColumnName="AI2" />
+          <ScalarProperty Name="AI1" ColumnName="AI1" />
+          <ScalarProperty Name="deviceID" ColumnName="deviceID" />
+          <ScalarProperty Name="PASM" ColumnName="PASM" />
+          <ScalarProperty Name="PAAV" ColumnName="PAAV" />
+          <ScalarProperty Name="PFSM" ColumnName="PFSM" />
+          <ScalarProperty Name="PFAV" ColumnName="PFAV" />
+          <ScalarProperty Name="VASM" ColumnName="VASM" />
+          <ScalarProperty Name="VAAVG" ColumnName="VAAVG" />
+          <ScalarProperty Name="W_SM" ColumnName="W_SM" />
+          <ScalarProperty Name="W_AV" ColumnName="W_AV" />
+          <ScalarProperty Name="ISM" ColumnName="ISM" />
+          <ScalarProperty Name="IAVG" ColumnName="IAVG" />
+          <ScalarProperty Name="VSM" ColumnName="VSM" />
+          <ScalarProperty Name="VAVG" ColumnName="VAVG" />
+          <ScalarProperty Name="PA3" ColumnName="PA3" />
+          <ScalarProperty Name="PA2" ColumnName="PA2" />
+          <ScalarProperty Name="PA1" ColumnName="PA1" />
+          <ScalarProperty Name="PFB" ColumnName="PFB" />
+          <ScalarProperty Name="PFY" ColumnName="PFY" />
+          <ScalarProperty Name="PFR" ColumnName="PFR" />
+          <ScalarProperty Name="KVAH" ColumnName="KVAH" />
+          <ScalarProperty Name="KWH" ColumnName="KWH" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="BR" ColumnName="BR" />
+          <ScalarProperty Name="YB" ColumnName="YB" />
+          <ScalarProperty Name="RY" ColumnName="RY" />
+          <ScalarProperty Name="VAR_B" ColumnName="VAR_B" />
+          <ScalarProperty Name="VAR_Y" ColumnName="VAR_Y" />
+          <ScalarProperty Name="VAR_R" ColumnName="VAR_R" />
+          <ScalarProperty Name="VA_B" ColumnName="VA_B" />
+          <ScalarProperty Name="VA_Y" ColumnName="VA_Y" />
+          <ScalarProperty Name="VA_R" ColumnName="VA_R" />
+          <ScalarProperty Name="W_B" ColumnName="W_B" />
+          <ScalarProperty Name="W_Y" ColumnName="W_Y" />
+          <ScalarProperty Name="W_R" ColumnName="W_R" />
+          <ScalarProperty Name="IB" ColumnName="IB" />
+          <ScalarProperty Name="IY" ColumnName="IY" />
+          <ScalarProperty Name="IR" ColumnName="IR" />
+          <ScalarProperty Name="VBN" ColumnName="VBN" />
+          <ScalarProperty Name="VYN" ColumnName="VYN" />
+          <ScalarProperty Name="VRN" ColumnName="VRN" />
+          <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="IOTLoggerModel.Device">
+        <MappingFragment StoreEntitySet="Devices">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="MaintenanceBySupportNumber" ColumnName="MaintenanceBySupportNumber" />
+          <ScalarProperty Name="DeviceStartedDate" ColumnName="DeviceStartedDate" />
+          <ScalarProperty Name="NumberOfParameters" ColumnName="NumberOfParameters" />
+          <ScalarProperty Name="DeviceGSMNumber" ColumnName="DeviceGSMNumber" />
+          <ScalarProperty Name="DeviceConfiguredAPIUrl" ColumnName="DeviceConfiguredAPIUrl" />
+          <ScalarProperty Name="DeviceConfiguredToIPPort" ColumnName="DeviceConfiguredToIPPort" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceTypes">
+      <EntityTypeMapping TypeName="IOTLoggerModel.DeviceType">
+        <MappingFragment StoreEntitySet="DeviceType">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="DeviceTypeName" ColumnName="DeviceTypeName" />
+          <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_CreateUpdateUserLogin" FunctionName="IOTLoggerModel.Store.sp_CreateUpdateUserLogin" />
+    <FunctionImportMapping FunctionImportName="sp_GetUserLoginDetils" FunctionName="IOTLoggerModel.Store.sp_GetUserLoginDetils">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IOTLoggerModel.sp_GetUserLoginDetils_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EncryptPwd" ColumnName="EncryptPwd" />
+          <ScalarProperty Name="LoginIsActive" ColumnName="LoginIsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetLatestDeviceLog" FunctionName="IOTLoggerModel.Store.SpGetLatestDeviceLog">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IOTLoggerModel.SpGetLatestDeviceLog_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+          <ScalarProperty Name="VRN" ColumnName="VRN" />
+          <ScalarProperty Name="VYN" ColumnName="VYN" />
+          <ScalarProperty Name="VBN" ColumnName="VBN" />
+          <ScalarProperty Name="IR" ColumnName="IR" />
+          <ScalarProperty Name="IY" ColumnName="IY" />
+          <ScalarProperty Name="IB" ColumnName="IB" />
+          <ScalarProperty Name="W_R" ColumnName="W_R" />
+          <ScalarProperty Name="W_Y" ColumnName="W_Y" />
+          <ScalarProperty Name="W_B" ColumnName="W_B" />
+          <ScalarProperty Name="VA_R" ColumnName="VA_R" />
+          <ScalarProperty Name="VA_Y" ColumnName="VA_Y" />
+          <ScalarProperty Name="VA_B" ColumnName="VA_B" />
+          <ScalarProperty Name="VAR_R" ColumnName="VAR_R" />
+          <ScalarProperty Name="VAR_Y" ColumnName="VAR_Y" />
+          <ScalarProperty Name="VAR_B" ColumnName="VAR_B" />
+          <ScalarProperty Name="RY" ColumnName="RY" />
+          <ScalarProperty Name="YB" ColumnName="YB" />
+          <ScalarProperty Name="BR" ColumnName="BR" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="KWH" ColumnName="KWH" />
+          <ScalarProperty Name="KVAH" ColumnName="KVAH" />
+          <ScalarProperty Name="PFR" ColumnName="PFR" />
+          <ScalarProperty Name="PFY" ColumnName="PFY" />
+          <ScalarProperty Name="PFB" ColumnName="PFB" />
+          <ScalarProperty Name="PA1" ColumnName="PA1" />
+          <ScalarProperty Name="PA2" ColumnName="PA2" />
+          <ScalarProperty Name="PA3" ColumnName="PA3" />
+          <ScalarProperty Name="VAVG" ColumnName="VAVG" />
+          <ScalarProperty Name="VSM" ColumnName="VSM" />
+          <ScalarProperty Name="IAVG" ColumnName="IAVG" />
+          <ScalarProperty Name="ISM" ColumnName="ISM" />
+          <ScalarProperty Name="W_AV" ColumnName="W_AV" />
+          <ScalarProperty Name="W_SM" ColumnName="W_SM" />
+          <ScalarProperty Name="VAAVG" ColumnName="VAAVG" />
+          <ScalarProperty Name="VASM" ColumnName="VASM" />
+          <ScalarProperty Name="PFAV" ColumnName="PFAV" />
+          <ScalarProperty Name="PFSM" ColumnName="PFSM" />
+          <ScalarProperty Name="PAAV" ColumnName="PAAV" />
+          <ScalarProperty Name="PASM" ColumnName="PASM" />
+          <ScalarProperty Name="deviceID" ColumnName="deviceID" />
+          <ScalarProperty Name="AI1" ColumnName="AI1" />
+          <ScalarProperty Name="AI2" ColumnName="AI2" />
+          <ScalarProperty Name="AI3" ColumnName="AI3" />
+          <ScalarProperty Name="AI4" ColumnName="AI4" />
+          <ScalarProperty Name="AI5" ColumnName="AI5" />
+          <ScalarProperty Name="AI6" ColumnName="AI6" />
+          <ScalarProperty Name="AI7" ColumnName="AI7" />
+          <ScalarProperty Name="AI8" ColumnName="AI8" />
+          <ScalarProperty Name="DI1" ColumnName="DI1" />
+          <ScalarProperty Name="DI2" ColumnName="DI2" />
+          <ScalarProperty Name="DI3" ColumnName="DI3" />
+          <ScalarProperty Name="DI4" ColumnName="DI4" />
+          <ScalarProperty Name="DI5" ColumnName="DI5" />
+          <ScalarProperty Name="DI6" ColumnName="DI6" />
+          <ScalarProperty Name="DI7" ColumnName="DI7" />
+          <ScalarProperty Name="DI8" ColumnName="DI8" />
+          <ScalarProperty Name="DO1" ColumnName="DO1" />
+          <ScalarProperty Name="DO2" ColumnName="DO2" />
+          <ScalarProperty Name="DO3" ColumnName="DO3" />
+          <ScalarProperty Name="DO4" ColumnName="DO4" />
+          <ScalarProperty Name="KW" ColumnName="KW" />
+          <ScalarProperty Name="KVA" ColumnName="KVA" />
+          <ScalarProperty Name="KVAR" ColumnName="KVAR" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAllDeviceLogs" FunctionName="IOTLoggerModel.Store.sp_GetAllDeviceLogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IOTLoggerModel.sp_GetAllDeviceLogs_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+          <ScalarProperty Name="VRN" ColumnName="VRN" />
+          <ScalarProperty Name="VYN" ColumnName="VYN" />
+          <ScalarProperty Name="VBN" ColumnName="VBN" />
+          <ScalarProperty Name="IR" ColumnName="IR" />
+          <ScalarProperty Name="IY" ColumnName="IY" />
+          <ScalarProperty Name="IB" ColumnName="IB" />
+          <ScalarProperty Name="W_R" ColumnName="W_R" />
+          <ScalarProperty Name="W_Y" ColumnName="W_Y" />
+          <ScalarProperty Name="W_B" ColumnName="W_B" />
+          <ScalarProperty Name="VA_R" ColumnName="VA_R" />
+          <ScalarProperty Name="VA_Y" ColumnName="VA_Y" />
+          <ScalarProperty Name="VA_B" ColumnName="VA_B" />
+          <ScalarProperty Name="VAR_R" ColumnName="VAR_R" />
+          <ScalarProperty Name="VAR_Y" ColumnName="VAR_Y" />
+          <ScalarProperty Name="VAR_B" ColumnName="VAR_B" />
+          <ScalarProperty Name="RY" ColumnName="RY" />
+          <ScalarProperty Name="YB" ColumnName="YB" />
+          <ScalarProperty Name="BR" ColumnName="BR" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="KWH" ColumnName="KWH" />
+          <ScalarProperty Name="KVAH" ColumnName="KVAH" />
+          <ScalarProperty Name="PFR" ColumnName="PFR" />
+          <ScalarProperty Name="PFY" ColumnName="PFY" />
+          <ScalarProperty Name="PFB" ColumnName="PFB" />
+          <ScalarProperty Name="PA1" ColumnName="PA1" />
+          <ScalarProperty Name="PA2" ColumnName="PA2" />
+          <ScalarProperty Name="PA3" ColumnName="PA3" />
+          <ScalarProperty Name="VAVG" ColumnName="VAVG" />
+          <ScalarProperty Name="VSM" ColumnName="VSM" />
+          <ScalarProperty Name="IAVG" ColumnName="IAVG" />
+          <ScalarProperty Name="ISM" ColumnName="ISM" />
+          <ScalarProperty Name="W_AV" ColumnName="W_AV" />
+          <ScalarProperty Name="W_SM" ColumnName="W_SM" />
+          <ScalarProperty Name="VAAVG" ColumnName="VAAVG" />
+          <ScalarProperty Name="VASM" ColumnName="VASM" />
+          <ScalarProperty Name="PFAV" ColumnName="PFAV" />
+          <ScalarProperty Name="PFSM" ColumnName="PFSM" />
+          <ScalarProperty Name="PAAV" ColumnName="PAAV" />
+          <ScalarProperty Name="PASM" ColumnName="PASM" />
+          <ScalarProperty Name="deviceID" ColumnName="deviceID" />
+          <ScalarProperty Name="AI1" ColumnName="AI1" />
+          <ScalarProperty Name="AI2" ColumnName="AI2" />
+          <ScalarProperty Name="AI3" ColumnName="AI3" />
+          <ScalarProperty Name="AI4" ColumnName="AI4" />
+          <ScalarProperty Name="AI5" ColumnName="AI5" />
+          <ScalarProperty Name="AI6" ColumnName="AI6" />
+          <ScalarProperty Name="AI7" ColumnName="AI7" />
+          <ScalarProperty Name="AI8" ColumnName="AI8" />
+          <ScalarProperty Name="DI1" ColumnName="DI1" />
+          <ScalarProperty Name="DI2" ColumnName="DI2" />
+          <ScalarProperty Name="DI3" ColumnName="DI3" />
+          <ScalarProperty Name="DI4" ColumnName="DI4" />
+          <ScalarProperty Name="DI5" ColumnName="DI5" />
+          <ScalarProperty Name="DI6" ColumnName="DI6" />
+          <ScalarProperty Name="DI7" ColumnName="DI7" />
+          <ScalarProperty Name="DI8" ColumnName="DI8" />
+          <ScalarProperty Name="DO1" ColumnName="DO1" />
+          <ScalarProperty Name="DO2" ColumnName="DO2" />
+          <ScalarProperty Name="DO3" ColumnName="DO3" />
+          <ScalarProperty Name="DO4" ColumnName="DO4" />
+          <ScalarProperty Name="KW" ColumnName="KW" />
+          <ScalarProperty Name="KVA" ColumnName="KVA" />
+          <ScalarProperty Name="KVAR" ColumnName="KVAR" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

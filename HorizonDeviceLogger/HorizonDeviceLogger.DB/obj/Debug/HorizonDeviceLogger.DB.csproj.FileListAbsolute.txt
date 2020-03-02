@@ -1,0 +1,11 @@
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\HorizonDeviceLogger.DB.dll.config
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\HorizonDeviceLogger.DB.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\HorizonDeviceLogger.DB.pdb
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\EntityFramework.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\EntityFramework.xml
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\obj\Debug\HorizonDeviceLogger.DB.csproj.CopyComplete
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\obj\Debug\HorizonDeviceLogger.DB.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\obj\Debug\HorizonDeviceLogger.DB.pdb
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.DB\obj\Debug\HorizonDeviceLogger.DB.csprojAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.Infra\bin\Debug\HorizonDeviceLogger.Infra.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.Infra\bin\Debug\HorizonDeviceLogger.Infra.pdb
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.Infra\obj\Debug\HorizonDeviceLogger.Infra.csprojAssemblyReference.cache
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.Infra\obj\Debug\HorizonDeviceLogger.Infra.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.Infra\obj\Debug\HorizonDeviceLogger.Infra.pdb

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E12B4AC-D01F-46C5-9A48-A468C0E566F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HorizonDeviceLogger.Adapter</RootNamespace>
+    <AssemblyName>HorizonDeviceLogger.Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeviceLog\DeviceLogAdapter.cs" />
+    <Compile Include="DeviceType\DeviceTypeAdapter.cs" />
+    <Compile Include="Device\DeviceAdapter.cs" />
+    <Compile Include="Login\LoginAdapter.cs" />
+    <Compile Include="MasterAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role\RoleAdapter.cs" />
+    <Compile Include="UserMaster\UserMasterAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HorizonDeviceLogger.AdapterInterfaces\HorizonDeviceLogger.AdapterInterfaces.csproj">
+      <Project>{1cd390f0-7b82-4b40-bc1d-406425395908}</Project>
+      <Name>HorizonDeviceLogger.AdapterInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HorizonDeviceLogger.DB\HorizonDeviceLogger.DB.csproj">
+      <Project>{1d8e4155-a487-4202-9ce8-7213127fd691}</Project>
+      <Name>HorizonDeviceLogger.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HorizonDeviceLogger.Models\HorizonDeviceLogger.Models.csproj">
+      <Project>{F22BCEDD-89B1-4676-945B-F8D860648279}</Project>
+      <Name>HorizonDeviceLogger.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HorizonDeviceLogger.RepositoryInterfaces\HorizonDeviceLogger.RepositoryInterfaces.csproj">
+      <Project>{3ab884b5-5cd3-4fb4-b1e4-5399b80ac092}</Project>
+      <Name>HorizonDeviceLogger.RepositoryInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HorizonDeviceLogger.Repository\HorizonDeviceLogger.Repository.csproj">
+      <Project>{fb03970c-a751-4657-bd6b-d990ab1d9bd8}</Project>
+      <Name>HorizonDeviceLogger.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+</Project>

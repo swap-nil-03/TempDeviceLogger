@@ -1,0 +1,117 @@
+﻿@model IEnumerable<HorizonDeviceLogger.Models.DTO.User.UserLoginMstDto>
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "DisplayUser";
+}
+
+<link rel="stylesheet" href="~/Content/AdminLteTheme/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Content/AdminLteTheme/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/AdminLteTheme/dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title sb-card-title">User List</h3>
+                    <div class="">
+                        @Html.ActionLink("Create New", "AddUser", null, new { @class = "btn btn-sm btn-primary" })
+                    </div>
+                    @*<button type="button" class="btn btn-block btn-primary" >Add User</button>*@
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Role </th>
+                                <th>Address</th>
+                                <th>Email Id</th>
+                                <th>Mobile No</th>
+                                <th>Active Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.RoleName</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.EmailId</td>
+                                    <td>@item.MobileNo</td>
+                                    <td>@item.IsActive</td>
+
+                                    @if (item.IsActive == true)
+                                    {
+                                        <td>
+                                            <a data-toggle="tooltip" title="Edit User Details" onclick="return confirm('Are you sure?')" href="@Url.Action("Edituser", "User", new { UserId = item.UserId, area = "User" })">
+                                                <i class="fas fa-user-edit"></i>
+                                            </a>
+                                            |
+                                            <a data-toggle="tooltip" title="deactive User" onclick="return confirm('Are you sure to deactive User?')" href="@Url.Action("DeactiveUser", "User", new { UserId = item.UserId, Flag = false, area = "User" })">
+                                                <i class="fas  fa-user-times"></i>
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a data-toggle="tooltip" title="deactive User" onclick="return confirm('Are you sure to active User?')" href="@Url.Action("DeactiveUser", "User", new { UserId = item.UserId, Flag = true, area = "User" })">
+                                                <i class="fas fa-user-plus"></i>
+                                            </a>
+
+                                        </td>
+                                    }
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<!-- jQuery -->
+<script src="~/Content/AdminLteTheme/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Content/AdminLteTheme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="~/Content/AdminLteTheme/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/Content/AdminLteTheme/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Content/AdminLteTheme/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/AdminLteTheme/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+        });
+    });
+</script>

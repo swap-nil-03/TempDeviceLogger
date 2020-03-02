@@ -1,0 +1,490 @@
+﻿@model HorizonDeviceLogger.Models.DTO.DashboardDto
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Areas/Admin/CustomJs/CustomChartPlots.js"></script>
+
+<div class="pull-left">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->                
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+        <div class="container-fluid pull-right">
+            <div class="card">
+                <div class="card-header">
+                    Realtime Data
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5>Device Selection</h5>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10" style="background: #2a3542;">
+                                            @Html.Partial("_VoltChart")
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="btn-group-vertical">
+                                                <button type="button" id="btnVY" class="btn btn-danger">VY</button>
+                                                <button type="button" id="btnVR" class="btn btn-success">VR</button>
+                                                <button type="button" id="btnVB" class="btn btn-primary">VB</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10" style="background: #2a3542;">
+                                            @Html.Partial("_CurrentChart")
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="btn-group-vertical">
+                                                <button type="button" id="btnIY" class="btn btn-danger">IY</button>
+                                                <button type="button" id="btnIR" class="btn btn-success">IR</button>
+                                                <button type="button" id="btnIB" class="btn btn-primary">IB</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10" style="background: #2a3542;">
+                                            @Html.Partial("_KVAChart")
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="table table-striped">
+                                                <div class="btn-group-vertical">
+                                                    <button type="button" id="btnKVA" class="btn btn-info">KVA</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10" style="background: #2a3542;">
+                                            @Html.Partial("_PFRChart")
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="table table-striped">
+                                                <div class="btn-group-vertical">
+                                                    <button type="button" id="btnPFR" class="btn btn-info">PFR</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-10" style="background: #2a3542;">
+                                            @Html.Partial("_KWHChart")
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="btn-group-vertical">
+                                                <button type="button" id="btnKWH" class="btn btn-warning">KWH</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="row">
+                                <table class=" col-md-10 table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>@Html.DisplayFor(x => x.deviceLogDto.deviceID)</th>
+                                            <th>Received Date Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span id="spnDeviceId"></span></td>
+                                            <td><span id="spnReceivedDateTime"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-md-12">
+                                </div>
+                                <hr />
+                            </div>
+
+                            <hr />
+                            <div class="row">
+                                @*@Html.Partial("_GaugeDisplay", Model)*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                    <div class="card-header">
+                        Top 100 Received Data from devices
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <table id="dtTableDeviceLogList" class="table table-bordered table-striped"
+                                   cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th> Device No.</th>
+                                        <th>ReceivedDateTime</th>
+                                        <th> VRN</th>
+                                        <th> VYN</th>
+                                        <th> VBN</th>
+                                        <th> IR</th>
+                                        <th> IY</th>
+                                        <th> IB</th>
+                                        <th> W_R</th>
+                                        <th> W_Y</th>
+                                        <th> W_B</th>
+                                        <th> VA_R</th>
+                                        <th> VA_Y</th>
+                                        <th> VA_B</th>
+                                        <th> VAR_R</th>
+                                        <th> VAR_Y</th>
+                                        <th> VAR_B</th>
+                                        <th> RY</th>
+                                        <th> YB</th>
+                                        <th> BR</th>
+                                        <th> F</th>
+                                        <th> KWH</th>
+                                        <th> KVAH</th>
+                                        <th> PFR</th>
+                                        <th> PFY</th>
+                                        <th> PFB</th>
+                                        <th> PA1</th>
+                                        <th> PA2</th>
+                                        <th> PA3</th>
+                                        <th> VAVG</th>
+                                        <th> VSM</th>
+                                        <th> IAVG</th>
+                                        <th> ISM</th>
+                                        <th> W_AV</th>
+                                        <th> W_SM</th>
+                                        <th> VAAVG</th>
+                                        <th> VASM</th>
+                                        <th> PFAV</th>
+                                        <th> PFSM</th>
+                                        <th> PAAV</th>
+                                        <th> PASM</th>
+                                        <th> AI1</th>
+                                        <th> AI2</th>
+                                        <th> AI3</th>
+                                        <th> AI4</th>
+                                        <th> AI5</th>
+                                        <th> AI6</th>
+                                        <th> AI7</th>
+                                        <th> AI8</th>
+                                        <th> DI1</th>
+                                        <th> DI2</th>
+                                        <th> DI3</th>
+                                        <th> DI4</th>
+                                        <th> DI5</th>
+                                        <th> DI6</th>
+                                        <th> DI7</th>
+                                        <th> DI8</th>
+                                        <th> DO1</th>
+                                        <th> DO2</th>
+                                        <th> DO3</th>
+                                        <th> DO4</th>
+                                        <th> KW</th>
+                                        <th> KVA</th>
+                                        <th> KVAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var items in Model.deviceLogDtoList)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(x => items.deviceID)</td>
+                                            <td>@Html.DisplayFor(x => items.ReceivedDateTime)</td>
+                                            <td>@Html.DisplayFor(x => items.VRN)</td>
+                                            <td>@Html.DisplayFor(x => items.VYN)</td>
+                                            <td>@Html.DisplayFor(x => items.VBN)</td>
+                                            <td>@Html.DisplayFor(x => items.IR)</td>
+                                            <td>@Html.DisplayFor(x => items.IY)</td>
+                                            <td>@Html.DisplayFor(x => items.IB)</td>
+                                            <td>@Html.DisplayFor(x => items.W_R)</td>
+                                            <td>@Html.DisplayFor(x => items.W_Y)</td>
+                                            <td>@Html.DisplayFor(x => items.W_B)</td>
+                                            <td>@Html.DisplayFor(x => items.VA_R)</td>
+                                            <td>@Html.DisplayFor(x => items.VA_Y)</td>
+                                            <td>@Html.DisplayFor(x => items.VA_B)</td>
+                                            <td>@Html.DisplayFor(x => items.VAR_R)</td>
+                                            <td>@Html.DisplayFor(x => items.VAR_Y)</td>
+                                            <td>@Html.DisplayFor(x => items.VAR_B)</td>
+                                            <td>@Html.DisplayFor(x => items.RY)</td>
+                                            <td>@Html.DisplayFor(x => items.YB)</td>
+                                            <td>@Html.DisplayFor(x => items.BR)</td>
+                                            <td>@Html.DisplayFor(x => items.F)</td>
+                                            <td>@Html.DisplayFor(x => items.KWH)</td>
+                                            <td>@Html.DisplayFor(x => items.KVAH)</td>
+                                            <td>@Html.DisplayFor(x => items.PFR)</td>
+                                            <td>@Html.DisplayFor(x => items.PFY)</td>
+                                            <td>@Html.DisplayFor(x => items.PFB)</td>
+                                            <td>@Html.DisplayFor(x => items.PA1)</td>
+                                            <td>@Html.DisplayFor(x => items.PA2)</td>
+                                            <td>@Html.DisplayFor(x => items.PA3)</td>
+                                            <td>@Html.DisplayFor(x => items.VAVG)</td>
+                                            <td>@Html.DisplayFor(x => items.VSM)</td>
+                                            <td>@Html.DisplayFor(x => items.IAVG)</td>
+                                            <td>@Html.DisplayFor(x => items.ISM)</td>
+                                            <td>@Html.DisplayFor(x => items.W_AV)</td>
+                                            <td>@Html.DisplayFor(x => items.W_SM)</td>
+                                            <td>@Html.DisplayFor(x => items.VAAVG)</td>
+                                            <td>@Html.DisplayFor(x => items.VASM)</td>
+                                            <td>@Html.DisplayFor(x => items.PFAV)</td>
+                                            <td>@Html.DisplayFor(x => items.PFSM)</td>
+                                            <td>@Html.DisplayFor(x => items.PAAV)</td>
+                                            <td>@Html.DisplayFor(x => items.PASM)</td>
+                                            <td>@Html.DisplayFor(x => items.AI1)</td>
+                                            <td>@Html.DisplayFor(x => items.AI2)</td>
+                                            <td>@Html.DisplayFor(x => items.AI3)</td>
+                                            <td>@Html.DisplayFor(x => items.AI4)</td>
+                                            <td>@Html.DisplayFor(x => items.AI5)</td>
+                                            <td>@Html.DisplayFor(x => items.AI6)</td>
+                                            <td>@Html.DisplayFor(x => items.AI7)</td>
+                                            <td>@Html.DisplayFor(x => items.AI8)</td>
+                                            <td>@Html.DisplayFor(x => items.DI1)</td>
+                                            <td>@Html.DisplayFor(x => items.DI2)</td>
+                                            <td>@Html.DisplayFor(x => items.DI3)</td>
+                                            <td>@Html.DisplayFor(x => items.DI4)</td>
+                                            <td>@Html.DisplayFor(x => items.DI5)</td>
+                                            <td>@Html.DisplayFor(x => items.DI6)</td>
+                                            <td>@Html.DisplayFor(x => items.DI7)</td>
+                                            <td>@Html.DisplayFor(x => items.DI8)</td>
+                                            <td>@Html.DisplayFor(x => items.DO1)</td>
+                                            <td>@Html.DisplayFor(x => items.DO2)</td>
+                                            <td>@Html.DisplayFor(x => items.DO3)</td>
+                                            <td>@Html.DisplayFor(x => items.DO4)</td>
+                                            <td>@Html.DisplayFor(x => items.KW)</td>
+                                            <td>@Html.DisplayFor(x => items.KVA)</td>
+                                            <td>@Html.DisplayFor(x => items.KVAR)</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th> Device No.</th>
+                                        <th>ReceivedDateTime</th>
+                                        <th> VRN</th>
+                                        <th> VYN</th>
+                                        <th> VBN</th>
+                                        <th> IR</th>
+                                        <th> IY</th>
+                                        <th> IB</th>
+                                        <th> W_R</th>
+                                        <th> W_Y</th>
+                                        <th> W_B</th>
+                                        <th> VA_R</th>
+                                        <th> VA_Y</th>
+                                        <th> VA_B</th>
+                                        <th> VAR_R</th>
+                                        <th> VAR_Y</th>
+                                        <th> VAR_B</th>
+                                        <th> RY</th>
+                                        <th> YB</th>
+                                        <th> BR</th>
+                                        <th> F</th>
+                                        <th> KWH</th>
+                                        <th> KVAH</th>
+                                        <th> PFR</th>
+                                        <th> PFY</th>
+                                        <th> PFB</th>
+                                        <th> PA1</th>
+                                        <th> PA2</th>
+                                        <th> PA3</th>
+                                        <th> VAVG</th>
+                                        <th> VSM</th>
+                                        <th> IAVG</th>
+                                        <th> ISM</th>
+                                        <th> W_AV</th>
+                                        <th> W_SM</th>
+                                        <th> VAAVG</th>
+                                        <th> VASM</th>
+                                        <th> PFAV</th>
+                                        <th> PFSM</th>
+                                        <th> PAAV</th>
+                                        <th> PASM</th>
+                                        <th> AI1</th>
+                                        <th> AI2</th>
+                                        <th> AI3</th>
+                                        <th> AI4</th>
+                                        <th> AI5</th>
+                                        <th> AI6</th>
+                                        <th> AI7</th>
+                                        <th> AI8</th>
+                                        <th> DI1</th>
+                                        <th> DI2</th>
+                                        <th> DI3</th>
+                                        <th> DI4</th>
+                                        <th> DI5</th>
+                                        <th> DI6</th>
+                                        <th> DI7</th>
+                                        <th> DI8</th>
+                                        <th> DO1</th>
+                                        <th> DO2</th>
+                                        <th> DO3</th>
+                                        <th> DO4</th>
+                                        <th> KW</th>
+                                        <th> KVA</th>
+                                        <th> KVAR</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>         
+        </div>
+    </section>
+</div>
+
+@section Scripts
+{
+
+    <script>
+        $(document).ready(function () {          
+            $('#dtTableDeviceLogList').DataTable({
+                "scrollX": true
+            });
+        });
+
+    window.onload = function () {
+                var CurrentCtx = document.getElementById('Currentcanvas').getContext('2d');
+                window.CurrentLine = new Chart(CurrentCtx, CurrentConfig);
+
+                 var VoltCtx = document.getElementById('Voltcanvas').getContext('2d');
+                window.VoltLine = new Chart(VoltCtx, VoltConfig);
+
+                var KWHViewCtx = document.getElementById('KWHcanvas').getContext('2d');
+                window.KWHLine = new Chart(KWHViewCtx, KWHConfig);
+
+                // var KVAHViewCtx = document.getElementById('KVAHcanvas').getContext('2d');
+                //window.KVAHLine = new Chart(KVAHViewCtx, KVAHConfig);
+
+        var KVAViewCtx = document.getElementById('KVAcanvas').getContext('2d');
+        window.KVALine = new Chart(KVAViewCtx, KVAConfig);
+
+        var PFRViewCtx = document.getElementById('PFRcanvas').getContext('2d');
+        window.PFRLine = new Chart(PFRViewCtx, PFRConfig);
+
+
+     };
+
+    var varTimerDeviceDat;
+    function stopFunction(){
+        clearInterval(varTimerDeviceDat); // stop the timer
+    }
+    $(document).ready(function(){
+        varTimerDeviceDat = setInterval("GetDeviceData()", 10000);
+    });
+
+   function GetDeviceData() {
+    $.ajax({
+        type: "POST",
+        url: "@Url.Action("GetLatestDeviceLog","Home", new { Area = "Admin" } )",
+        //data: { userId: Id },
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+
+            var prevDateTime = $('#spnReceivedDateTime');
+            CommonFunction(result, prevDateTime.text());
+
+            prevDateTime.text(result.ReceivedDateTimeStr);
+            $('#spnDeviceId').text(result.deviceID);
+
+            //$('#cnvsRadialGaugeKWH').attr('data-value', result.KWH)
+            //$('#pnlFooterKWH').text(result.KWH);
+            //$('#cnvsRadialGaugeIR').attr('data-value', result.IR)
+            //$('#pnlFooterIR').text(result.KVAH);
+            console.log(result)
+        },
+        error: function (response) {
+            console.log('eror');
+        }
+    });
+}
+
+        function CommonFunction(received, prevDateTime) {           
+        if (prevDateTime == "") {
+            AllchartPushData(received);
+        }
+
+        if (prevDateTime.length > 0) {
+           // if (new Date(prevDateTime) < new Date(received.ReceivedDateTimeStr))
+            {
+                AllchartPushData(received);
+            }
+        }
+    }
+
+        var KWHTimeCount = 0;
+        var KWHTimeCountReset = 0;
+function AllchartPushData(received) {
+    var time = GetFormattedTime(received.ReceivedDateTimeStr);
+    //var time = received.ReceivedDateTime;
+    var currentArr = [received.IR, received.IY, received.IB];
+    var voltArr = [received.VRN, received.VYN, received.VBN];
+
+    CurrentAutoAdd(currentArr, time);
+    VoltAutoAdd(voltArr, time);
+
+    if (KWHTimeCountReset == 60) {
+        KWHTimeCountReset = 0;
+    }
+    if (KWHTimeCountReset == 0) {
+        KWHAutoAdd(received.KWH, time);
+    $('#btnKWH').text(received.KWH);
+    }   
+    KWHTimeCountReset++;
+    //KVAHAutoAdd(received.KVAH, time);
+
+    KVAAutoAdd(received.KVA, time);
+    PFRAutoAdd(received.PFR, time);
+    $('#btnPFR').text(received.PFR);
+
+    $('#btnVR').text(received.VRN);
+    $('#btnVY').text(received.VYN);
+    $('#btnVB').text(received.VBN);
+
+    $('#btnIR').text(received.IR);
+    $('#btnIY').text(received.IY);
+    $('#btnIB').text(received.IB);
+    
+    //$('#btnKVAH').text(received.KVAH);
+    $('#btnKVA').text(received.KVA);
+}
+    </script>
+}

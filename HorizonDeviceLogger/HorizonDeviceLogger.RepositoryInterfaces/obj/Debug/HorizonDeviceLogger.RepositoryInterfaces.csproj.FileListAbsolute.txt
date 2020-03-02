@@ -1,0 +1,14 @@
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.RepositoryInterfaces.dll.config
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.RepositoryInterfaces.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.RepositoryInterfaces.pdb
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\EntityFramework.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.DB.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.DB.pdb
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\HorizonDeviceLogger.DB.dll.config
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\EntityFramework.xml
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\obj\Debug\HorizonDeviceLogger.RepositoryInterfaces.csprojAssemblyReference.cache
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\obj\Debug\HorizonDeviceLogger.RepositoryInterfaces.csproj.CopyComplete
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\obj\Debug\HorizonDeviceLogger.RepositoryInterfaces.dll
+C:\Users\swapnil\source\repos\HorizonDeviceLogger\HorizonDeviceLogger\HorizonDeviceLogger.RepositoryInterfaces\obj\Debug\HorizonDeviceLogger.RepositoryInterfaces.pdb

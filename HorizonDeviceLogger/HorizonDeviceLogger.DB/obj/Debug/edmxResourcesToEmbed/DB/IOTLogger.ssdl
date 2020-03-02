@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IOTLoggerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.AlertConfigs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AlertConfigs">
+    <Key>
+      <PropertyRef Name="AlertConfigId" />
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="AlertTypeId" />
+      <PropertyRef Name="Priority" />
+      <PropertyRef Name="ForColumn" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="AlertConfigId" Type="int" Nullable="false" />
+    <Property Name="DeviceId" Type="int" Nullable="false" />
+    <Property Name="AlertTypeId" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ForColumn" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.AlertTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AlertTypes">
+    <Key>
+      <PropertyRef Name="AlertTypeId" />
+      <PropertyRef Name="AlertType" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="AlertTypeId" Type="int" Nullable="false" />
+    <Property Name="AlertType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MsgSubject" Type="nvarchar(max)" />
+    <Property Name="MsgTitle" Type="nvarchar(max)" />
+    <Property Name="MsgBody" Type="nvarchar(max)" />
+    <Property Name="DemoMessage1" Type="nvarchar(max)" />
+    <Property Name="DemoMessage2" Type="nvarchar(max)" />
+    <Property Name="DemoMessage3" Type="nvarchar(max)" />
+    <Property Name="DemoMessage4" Type="nvarchar(max)" />
+    <Property Name="Comments" Type="varchar" MaxLength="1000" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.DeviceLogs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeviceLogs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ReceivedDateTime" Type="datetime" />
+    <Property Name="VRN" Type="nvarchar" MaxLength="50" />
+    <Property Name="VYN" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBN" Type="nvarchar" MaxLength="50" />
+    <Property Name="IR" Type="nvarchar" MaxLength="50" />
+    <Property Name="IY" Type="nvarchar" MaxLength="50" />
+    <Property Name="IB" Type="nvarchar" MaxLength="50" />
+    <Property Name="W_R" Type="nvarchar" MaxLength="50" />
+    <Property Name="W_Y" Type="nvarchar" MaxLength="50" />
+    <Property Name="W_B" Type="nvarchar" MaxLength="50" />
+    <Property Name="VA_R" Type="nchar" MaxLength="10" />
+    <Property Name="VA_Y" Type="nchar" MaxLength="10" />
+    <Property Name="VA_B" Type="nchar" MaxLength="10" />
+    <Property Name="VAR_R" Type="nchar" MaxLength="10" />
+    <Property Name="VAR_Y" Type="nchar" MaxLength="10" />
+    <Property Name="VAR_B" Type="nchar" MaxLength="10" />
+    <Property Name="RY" Type="nchar" MaxLength="10" />
+    <Property Name="YB" Type="nchar" MaxLength="10" />
+    <Property Name="BR" Type="nchar" MaxLength="10" />
+    <Property Name="F" Type="nchar" MaxLength="10" />
+    <Property Name="KWH" Type="nchar" MaxLength="10" />
+    <Property Name="KVAH" Type="nchar" MaxLength="10" />
+    <Property Name="PFR" Type="nchar" MaxLength="150" />
+    <Property Name="PFY" Type="nchar" MaxLength="150" />
+    <Property Name="PFB" Type="nchar" MaxLength="150" />
+    <Property Name="PA1" Type="nchar" MaxLength="10" />
+    <Property Name="PA2" Type="nchar" MaxLength="10" />
+    <Property Name="PA3" Type="nchar" MaxLength="10" />
+    <Property Name="VAVG" Type="nchar" MaxLength="10" />
+    <Property Name="VSM" Type="nchar" MaxLength="10" />
+    <Property Name="IAVG" Type="nchar" MaxLength="10" />
+    <Property Name="ISM" Type="nchar" MaxLength="10" />
+    <Property Name="W_AV" Type="nchar" MaxLength="10" />
+    <Property Name="W_SM" Type="nchar" MaxLength="10" />
+    <Property Name="VAAVG" Type="nchar" MaxLength="10" />
+    <Property Name="VASM" Type="nchar" MaxLength="10" />
+    <Property Name="PFAV" Type="nchar" MaxLength="10" />
+    <Property Name="PFSM" Type="nchar" MaxLength="10" />
+    <Property Name="PAAV" Type="nchar" MaxLength="10" />
+    <Property Name="PASM" Type="nchar" MaxLength="10" />
+    <Property Name="deviceID" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI1" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI2" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI3" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI4" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI5" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI6" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI7" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI8" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI1" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI2" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI3" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI4" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI5" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI6" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI7" Type="nvarchar" MaxLength="100" />
+    <Property Name="DI8" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO1" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO2" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO3" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO4" Type="nvarchar" MaxLength="100" />
+    <Property Name="KW" Type="nvarchar" MaxLength="50" />
+    <Property Name="KVA" Type="nvarchar" MaxLength="50" />
+    <Property Name="KVAR" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comments" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.DeviceLogs2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeviceLogs2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ReceivedDateTime" Type="datetime" />
+    <Property Name="VRN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VYN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VBN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IY" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IB" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="W_R" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="W_Y" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="W_B" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VA_R" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VA_Y" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VA_B" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_R" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_Y" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_B" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="RY" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="YB" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="BR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="F" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="KWH" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="KVAH" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PFR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PFY" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PFB" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PA1" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PA2" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PA3" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VAVG" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VSM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IAVG" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ISM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="W_AV" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="W_SM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VAAVG" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VASM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PFAV" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PFSM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PAAV" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PASM" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="deviceID" Type="nvarchar" MaxLength="100" />
+    <Property Name="AI1" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI2" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI3" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI4" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI5" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI6" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI7" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AI8" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI1" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI2" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI3" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI4" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI5" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI6" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI7" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DI8" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DO1" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DO2" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DO3" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DO4" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="KW" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="KVA" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="KVAR" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.Devices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Devices">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="SerialNumber" />
+      <PropertyRef Name="DeviceName" />
+      <PropertyRef Name="DeviceType" />
+      <PropertyRef Name="NumberOfParameters" />
+      <PropertyRef Name="DeviceStartedDate" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="DeviceId" Type="int" Nullable="false" />
+    <Property Name="SerialNumber" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="150" />
+    <Property Name="DeviceType" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DeviceConfiguredToIPPort" Type="varchar" MaxLength="100" />
+    <Property Name="DeviceConfiguredAPIUrl" Type="varchar(max)" />
+    <Property Name="DeviceGSMNumber" Type="varchar" MaxLength="20" />
+    <Property Name="NumberOfParameters" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeviceStartedDate" Type="datetime" Nullable="false" />
+    <Property Name="MaintenanceBySupportNumber" Type="varchar(max)" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IOTLogger.dbo.DeviceType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeviceType">
+    <Key>
+      <PropertyRef Name="DeviceTypeId" />
+      <PropertyRef Name="DeviceTypeName" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="DeviceTypeId" Type="int" Nullable="false" />
+    <Property Name="DeviceTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="500" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LoginMst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="EncryptPwd" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RoleMst">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserMst">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="500" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_LoginMst_RoleMst">
+    <End Role="RoleMst" Type="Self.RoleMst" Multiplicity="1" />
+    <End Role="LoginMst" Type="Self.LoginMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMst">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="LoginMst">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginMst_UserMst">
+    <End Role="UserMst" Type="Self.UserMst" Multiplicity="1" />
+    <End Role="LoginMst" Type="Self.LoginMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserMst">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="LoginMst">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserMst_RoleMst">
+    <End Role="RoleMst" Type="Self.RoleMst" Multiplicity="0..1" />
+    <End Role="UserMst" Type="Self.UserMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMst">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserMst">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_CreateUpdateUserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="roleId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+    <Parameter Name="MobileNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="encryptPwd" Type="nvarchar" Mode="In" />
+    <Parameter Name="Isactive" Type="bit" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoginBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="resultId" Type="bigint" Mode="InOut" />
+  </Function>
+  <Function Name="sp_GetAllDeviceLogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetUserLoginDetils" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SpGetLatestDeviceLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="IOTLoggerModelStoreContainer">
+    <EntitySet Name="LoginMst" EntityType="Self.LoginMst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleMst" EntityType="Self.RoleMst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMst" EntityType="Self.UserMst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertConfigs" EntityType="Self.AlertConfigs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AlertConfigs].[AlertConfigId] AS [AlertConfigId], 
+    [AlertConfigs].[DeviceId] AS [DeviceId], 
+    [AlertConfigs].[AlertTypeId] AS [AlertTypeId], 
+    [AlertConfigs].[Priority] AS [Priority], 
+    [AlertConfigs].[ForColumn] AS [ForColumn], 
+    [AlertConfigs].[Active] AS [Active], 
+    [AlertConfigs].[CreatedDate] AS [CreatedDate], 
+    [AlertConfigs].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[AlertConfigs] AS [AlertConfigs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AlertTypes" EntityType="Self.AlertTypes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AlertTypes].[AlertTypeId] AS [AlertTypeId], 
+    [AlertTypes].[AlertType] AS [AlertType], 
+    [AlertTypes].[MsgSubject] AS [MsgSubject], 
+    [AlertTypes].[MsgTitle] AS [MsgTitle], 
+    [AlertTypes].[MsgBody] AS [MsgBody], 
+    [AlertTypes].[DemoMessage1] AS [DemoMessage1], 
+    [AlertTypes].[DemoMessage2] AS [DemoMessage2], 
+    [AlertTypes].[DemoMessage3] AS [DemoMessage3], 
+    [AlertTypes].[DemoMessage4] AS [DemoMessage4], 
+    [AlertTypes].[Comments] AS [Comments], 
+    [AlertTypes].[Active] AS [Active], 
+    [AlertTypes].[CreatedDate] AS [CreatedDate], 
+    [AlertTypes].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[AlertTypes] AS [AlertTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeviceLogs" EntityType="Self.DeviceLogs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeviceLogs].[ID] AS [ID], 
+    [DeviceLogs].[ReceivedDateTime] AS [ReceivedDateTime], 
+    [DeviceLogs].[VRN] AS [VRN], 
+    [DeviceLogs].[VYN] AS [VYN], 
+    [DeviceLogs].[VBN] AS [VBN], 
+    [DeviceLogs].[IR] AS [IR], 
+    [DeviceLogs].[IY] AS [IY], 
+    [DeviceLogs].[IB] AS [IB], 
+    [DeviceLogs].[W_R] AS [W_R], 
+    [DeviceLogs].[W_Y] AS [W_Y], 
+    [DeviceLogs].[W_B] AS [W_B], 
+    [DeviceLogs].[VA_R] AS [VA_R], 
+    [DeviceLogs].[VA_Y] AS [VA_Y], 
+    [DeviceLogs].[VA_B] AS [VA_B], 
+    [DeviceLogs].[VAR_R] AS [VAR_R], 
+    [DeviceLogs].[VAR_Y] AS [VAR_Y], 
+    [DeviceLogs].[VAR_B] AS [VAR_B], 
+    [DeviceLogs].[RY] AS [RY], 
+    [DeviceLogs].[YB] AS [YB], 
+    [DeviceLogs].[BR] AS [BR], 
+    [DeviceLogs].[F] AS [F], 
+    [DeviceLogs].[KWH] AS [KWH], 
+    [DeviceLogs].[KVAH] AS [KVAH], 
+    [DeviceLogs].[PFR] AS [PFR], 
+    [DeviceLogs].[PFY] AS [PFY], 
+    [DeviceLogs].[PFB] AS [PFB], 
+    [DeviceLogs].[PA1] AS [PA1], 
+    [DeviceLogs].[PA2] AS [PA2], 
+    [DeviceLogs].[PA3] AS [PA3], 
+    [DeviceLogs].[VAVG] AS [VAVG], 
+    [DeviceLogs].[VSM] AS [VSM], 
+    [DeviceLogs].[IAVG] AS [IAVG], 
+    [DeviceLogs].[ISM] AS [ISM], 
+    [DeviceLogs].[W_AV] AS [W_AV], 
+    [DeviceLogs].[W_SM] AS [W_SM], 
+    [DeviceLogs].[VAAVG] AS [VAAVG], 
+    [DeviceLogs].[VASM] AS [VASM], 
+    [DeviceLogs].[PFAV] AS [PFAV], 
+    [DeviceLogs].[PFSM] AS [PFSM], 
+    [DeviceLogs].[PAAV] AS [PAAV], 
+    [DeviceLogs].[PASM] AS [PASM], 
+    [DeviceLogs].[deviceID] AS [deviceID], 
+    [DeviceLogs].[AI1] AS [AI1], 
+    [DeviceLogs].[AI2] AS [AI2], 
+    [DeviceLogs].[AI3] AS [AI3], 
+    [DeviceLogs].[AI4] AS [AI4], 
+    [DeviceLogs].[AI5] AS [AI5], 
+    [DeviceLogs].[AI6] AS [AI6], 
+    [DeviceLogs].[AI7] AS [AI7], 
+    [DeviceLogs].[AI8] AS [AI8], 
+    [DeviceLogs].[DI1] AS [DI1], 
+    [DeviceLogs].[DI2] AS [DI2], 
+    [DeviceLogs].[DI3] AS [DI3], 
+    [DeviceLogs].[DI4] AS [DI4], 
+    [DeviceLogs].[DI5] AS [DI5], 
+    [DeviceLogs].[DI6] AS [DI6], 
+    [DeviceLogs].[DI7] AS [DI7], 
+    [DeviceLogs].[DI8] AS [DI8], 
+    [DeviceLogs].[DO1] AS [DO1], 
+    [DeviceLogs].[DO2] AS [DO2], 
+    [DeviceLogs].[DO3] AS [DO3], 
+    [DeviceLogs].[DO4] AS [DO4], 
+    [DeviceLogs].[KW] AS [KW], 
+    [DeviceLogs].[KVA] AS [KVA], 
+    [DeviceLogs].[KVAR] AS [KVAR], 
+    [DeviceLogs].[Comments] AS [Comments]
+    FROM [dbo].[DeviceLogs] AS [DeviceLogs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeviceLogs2" EntityType="Self.DeviceLogs2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeviceLogs2].[ID] AS [ID], 
+    [DeviceLogs2].[ReceivedDateTime] AS [ReceivedDateTime], 
+    [DeviceLogs2].[VRN] AS [VRN], 
+    [DeviceLogs2].[VYN] AS [VYN], 
+    [DeviceLogs2].[VBN] AS [VBN], 
+    [DeviceLogs2].[IR] AS [IR], 
+    [DeviceLogs2].[IY] AS [IY], 
+    [DeviceLogs2].[IB] AS [IB], 
+    [DeviceLogs2].[W_R] AS [W_R], 
+    [DeviceLogs2].[W_Y] AS [W_Y], 
+    [DeviceLogs2].[W_B] AS [W_B], 
+    [DeviceLogs2].[VA_R] AS [VA_R], 
+    [DeviceLogs2].[VA_Y] AS [VA_Y], 
+    [DeviceLogs2].[VA_B] AS [VA_B], 
+    [DeviceLogs2].[VAR_R] AS [VAR_R], 
+    [DeviceLogs2].[VAR_Y] AS [VAR_Y], 
+    [DeviceLogs2].[VAR_B] AS [VAR_B], 
+    [DeviceLogs2].[RY] AS [RY], 
+    [DeviceLogs2].[YB] AS [YB], 
+    [DeviceLogs2].[BR] AS [BR], 
+    [DeviceLogs2].[F] AS [F], 
+    [DeviceLogs2].[KWH] AS [KWH], 
+    [DeviceLogs2].[KVAH] AS [KVAH], 
+    [DeviceLogs2].[PFR] AS [PFR], 
+    [DeviceLogs2].[PFY] AS [PFY], 
+    [DeviceLogs2].[PFB] AS [PFB], 
+    [DeviceLogs2].[PA1] AS [PA1], 
+    [DeviceLogs2].[PA2] AS [PA2], 
+    [DeviceLogs2].[PA3] AS [PA3], 
+    [DeviceLogs2].[VAVG] AS [VAVG], 
+    [DeviceLogs2].[VSM] AS [VSM], 
+    [DeviceLogs2].[IAVG] AS [IAVG], 
+    [DeviceLogs2].[ISM] AS [ISM], 
+    [DeviceLogs2].[W_AV] AS [W_AV], 
+    [DeviceLogs2].[W_SM] AS [W_SM], 
+    [DeviceLogs2].[VAAVG] AS [VAAVG], 
+    [DeviceLogs2].[VASM] AS [VASM], 
+    [DeviceLogs2].[PFAV] AS [PFAV], 
+    [DeviceLogs2].[PFSM] AS [PFSM], 
+    [DeviceLogs2].[PAAV] AS [PAAV], 
+    [DeviceLogs2].[PASM] AS [PASM], 
+    [DeviceLogs2].[deviceID] AS [deviceID], 
+    [DeviceLogs2].[AI1] AS [AI1], 
+    [DeviceLogs2].[AI2] AS [AI2], 
+    [DeviceLogs2].[AI3] AS [AI3], 
+    [DeviceLogs2].[AI4] AS [AI4], 
+    [DeviceLogs2].[AI5] AS [AI5], 
+    [DeviceLogs2].[AI6] AS [AI6], 
+    [DeviceLogs2].[AI7] AS [AI7], 
+    [DeviceLogs2].[AI8] AS [AI8], 
+    [DeviceLogs2].[DI1] AS [DI1], 
+    [DeviceLogs2].[DI2] AS [DI2], 
+    [DeviceLogs2].[DI3] AS [DI3], 
+    [DeviceLogs2].[DI4] AS [DI4], 
+    [DeviceLogs2].[DI5] AS [DI5], 
+    [DeviceLogs2].[DI6] AS [DI6], 
+    [DeviceLogs2].[DI7] AS [DI7], 
+    [DeviceLogs2].[DI8] AS [DI8], 
+    [DeviceLogs2].[DO1] AS [DO1], 
+    [DeviceLogs2].[DO2] AS [DO2], 
+    [DeviceLogs2].[DO3] AS [DO3], 
+    [DeviceLogs2].[DO4] AS [DO4], 
+    [DeviceLogs2].[KW] AS [KW], 
+    [DeviceLogs2].[KVA] AS [KVA], 
+    [DeviceLogs2].[KVAR] AS [KVAR]
+    FROM [dbo].[DeviceLogs2] AS [DeviceLogs2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Devices" EntityType="Self.Devices" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Devices].[DeviceId] AS [DeviceId], 
+    [Devices].[SerialNumber] AS [SerialNumber], 
+    [Devices].[DeviceName] AS [DeviceName], 
+    [Devices].[Location] AS [Location], 
+    [Devices].[DeviceType] AS [DeviceType], 
+    [Devices].[DeviceConfiguredToIPPort] AS [DeviceConfiguredToIPPort], 
+    [Devices].[DeviceConfiguredAPIUrl] AS [DeviceConfiguredAPIUrl], 
+    [Devices].[DeviceGSMNumber] AS [DeviceGSMNumber], 
+    [Devices].[NumberOfParameters] AS [NumberOfParameters], 
+    [Devices].[DeviceStartedDate] AS [DeviceStartedDate], 
+    [Devices].[MaintenanceBySupportNumber] AS [MaintenanceBySupportNumber], 
+    [Devices].[Comments] AS [Comments], 
+    [Devices].[Active] AS [Active], 
+    [Devices].[CreatedDate] AS [CreatedDate], 
+    [Devices].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[Devices] AS [Devices]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeviceType" EntityType="Self.DeviceType" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeviceType].[DeviceTypeId] AS [DeviceTypeId], 
+    [DeviceType].[DeviceTypeName] AS [DeviceTypeName], 
+    [DeviceType].[Comments] AS [Comments], 
+    [DeviceType].[Active] AS [Active], 
+    [DeviceType].[CreatedDate] AS [CreatedDate], 
+    [DeviceType].[UpdatedDate] AS [UpdatedDate]
+    FROM [dbo].[DeviceType] AS [DeviceType]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_LoginMst_RoleMst" Association="Self.FK_LoginMst_RoleMst">
+      <End Role="RoleMst" EntitySet="RoleMst" />
+      <End Role="LoginMst" EntitySet="LoginMst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginMst_UserMst" Association="Self.FK_LoginMst_UserMst">
+      <End Role="UserMst" EntitySet="UserMst" />
+      <End Role="LoginMst" EntitySet="LoginMst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserMst_RoleMst" Association="Self.FK_UserMst_RoleMst">
+      <End Role="RoleMst" EntitySet="RoleMst" />
+      <End Role="UserMst" EntitySet="UserMst" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

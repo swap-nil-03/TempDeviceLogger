@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IOTLoggerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IOTLoggerEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LoginMsts" EntityType="IOTLoggerModel.LoginMst" />
+    <EntitySet Name="RoleMsts" EntityType="IOTLoggerModel.RoleMst" />
+    <EntitySet Name="UserMsts" EntityType="IOTLoggerModel.UserMst" />
+    <EntitySet Name="AlertConfigs" EntityType="IOTLoggerModel.AlertConfig" />
+    <EntitySet Name="AlertTypes" EntityType="IOTLoggerModel.AlertType" />
+    <EntitySet Name="DeviceLogs" EntityType="IOTLoggerModel.DeviceLog" />
+    <EntitySet Name="DeviceLogs2" EntityType="IOTLoggerModel.DeviceLogs2" />
+    <EntitySet Name="Devices" EntityType="IOTLoggerModel.Device" />
+    <EntitySet Name="DeviceTypes" EntityType="IOTLoggerModel.DeviceType" />
+    <AssociationSet Name="FK_LoginMst_RoleMst" Association="IOTLoggerModel.FK_LoginMst_RoleMst">
+      <End Role="RoleMst" EntitySet="RoleMsts" />
+      <End Role="LoginMst" EntitySet="LoginMsts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginMst_UserMst" Association="IOTLoggerModel.FK_LoginMst_UserMst">
+      <End Role="UserMst" EntitySet="UserMsts" />
+      <End Role="LoginMst" EntitySet="LoginMsts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserMst_RoleMst" Association="IOTLoggerModel.FK_UserMst_RoleMst">
+      <End Role="RoleMst" EntitySet="RoleMsts" />
+      <End Role="UserMst" EntitySet="UserMsts" />
+    </AssociationSet>
+    <FunctionImport Name="sp_CreateUpdateUserLogin">
+      <Parameter Name="UserId" Mode="In" Type="Int64" />
+      <Parameter Name="roleId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="EmailId" Mode="In" Type="String" />
+      <Parameter Name="MobileNo" Mode="In" Type="String" />
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="encryptPwd" Mode="In" Type="String" />
+      <Parameter Name="Isactive" Mode="In" Type="Boolean" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="LoginBy" Mode="In" Type="String" />
+      <Parameter Name="resultId" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetUserLoginDetils" ReturnType="Collection(IOTLoggerModel.sp_GetUserLoginDetils_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetLatestDeviceLog" ReturnType="Collection(IOTLoggerModel.SpGetLatestDeviceLog_Result)" />
+    <FunctionImport Name="sp_GetAllDeviceLogs" ReturnType="Collection(IOTLoggerModel.sp_GetAllDeviceLogs_Result)" />
+  </EntityContainer>
+  <EntityType Name="LoginMst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EncryptPwd" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RoleMst" Relationship="IOTLoggerModel.FK_LoginMst_RoleMst" FromRole="LoginMst" ToRole="RoleMst" />
+    <NavigationProperty Name="UserMst" Relationship="IOTLoggerModel.FK_LoginMst_UserMst" FromRole="LoginMst" ToRole="UserMst" />
+  </EntityType>
+  <EntityType Name="RoleMst">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="LoginMsts" Relationship="IOTLoggerModel.FK_LoginMst_RoleMst" FromRole="RoleMst" ToRole="LoginMst" />
+    <NavigationProperty Name="UserMsts" Relationship="IOTLoggerModel.FK_UserMst_RoleMst" FromRole="RoleMst" ToRole="UserMst" />
+  </EntityType>
+  <EntityType Name="UserMst">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="LoginMsts" Relationship="IOTLoggerModel.FK_LoginMst_UserMst" FromRole="UserMst" ToRole="LoginMst" />
+    <NavigationProperty Name="RoleMst" Relationship="IOTLoggerModel.FK_UserMst_RoleMst" FromRole="UserMst" ToRole="RoleMst" />
+  </EntityType>
+  <EntityType Name="AlertConfig">
+    <Key>
+      <PropertyRef Name="AlertConfigId" />
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="AlertTypeId" />
+      <PropertyRef Name="Priority" />
+      <PropertyRef Name="ForColumn" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="AlertConfigId" Type="Int32" Nullable="false" />
+    <Property Name="DeviceId" Type="Int32" Nullable="false" />
+    <Property Name="AlertTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ForColumn" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AlertType">
+    <Key>
+      <PropertyRef Name="AlertTypeId" />
+      <PropertyRef Name="AlertType1" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="AlertTypeId" Type="Int32" Nullable="false" />
+    <Property Name="AlertType1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MsgSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MsgTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MsgBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DemoMessage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DemoMessage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DemoMessage3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DemoMessage4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DeviceLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ReceivedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="VRN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VYN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="W_R" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="W_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="W_B" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VA_R" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VA_Y" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VA_B" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VAR_R" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VAR_Y" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VAR_B" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="YB" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BR" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="F" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="KWH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="KVAH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PFR" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="PFY" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="PFB" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="PA1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PA2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PA3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VAVG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VSM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IAVG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ISM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="W_AV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="W_SM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VAAVG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VASM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PFAV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PFSM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PAAV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PASM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="deviceID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI6" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI8" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI6" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DI8" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KVA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KVAR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DeviceLogs2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ReceivedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="VRN" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VYN" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VBN" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IY" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IB" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="W_R" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="W_Y" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="W_B" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VA_R" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VA_Y" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VA_B" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_R" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_Y" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VAR_B" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="RY" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="YB" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="BR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="F" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="KWH" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="KVAH" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PFR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PFY" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PFB" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PA1" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PA2" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PA3" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VAVG" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VSM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IAVG" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="W_AV" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="W_SM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VAAVG" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VASM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PFAV" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PFSM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PAAV" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PASM" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="deviceID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AI1" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI2" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI3" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI4" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI5" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI6" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI7" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AI8" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI1" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI2" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI3" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI4" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI5" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI6" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI7" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DI8" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DO1" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DO2" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DO3" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DO4" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="KW" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="KVA" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="KVAR" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="SerialNumber" />
+      <PropertyRef Name="DeviceName" />
+      <PropertyRef Name="DeviceType" />
+      <PropertyRef Name="NumberOfParameters" />
+      <PropertyRef Name="DeviceStartedDate" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="DeviceId" Type="Int32" Nullable="false" />
+    <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceType" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceConfiguredToIPPort" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceConfiguredAPIUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceGSMNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NumberOfParameters" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceStartedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaintenanceBySupportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DeviceType">
+    <Key>
+      <PropertyRef Name="DeviceTypeId" />
+      <PropertyRef Name="DeviceTypeName" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="DeviceTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DeviceTypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_LoginMst_RoleMst">
+    <End Type="IOTLoggerModel.RoleMst" Role="RoleMst" Multiplicity="1" />
+    <End Type="IOTLoggerModel.LoginMst" Role="LoginMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMst">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="LoginMst">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginMst_UserMst">
+    <End Type="IOTLoggerModel.UserMst" Role="UserMst" Multiplicity="1" />
+    <End Type="IOTLoggerModel.LoginMst" Role="LoginMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserMst">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="LoginMst">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserMst_RoleMst">
+    <End Type="IOTLoggerModel.RoleMst" Role="RoleMst" Multiplicity="0..1" />
+    <End Type="IOTLoggerModel.UserMst" Role="UserMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMst">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserMst">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_GetUserLoginDetils_Result">
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="EmailId" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="EncryptPwd" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="LoginIsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetLatestDeviceLog_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="ReceivedDateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="VRN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VYN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IB" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_R" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_Y" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_B" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VA_R" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VA_Y" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VA_B" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_R" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_Y" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_B" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RY" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="YB" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BR" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="F" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="KWH" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="KVAH" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFR" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PFY" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PFB" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PA1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PA2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PA3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VSM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="IAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ISM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="W_AV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="W_SM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VASM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFAV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFSM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PAAV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PASM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="deviceID" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI5" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI6" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI7" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI8" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI5" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI6" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI7" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI8" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="KW" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KVA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KVAR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="sp_GetAllDeviceLogs_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="ReceivedDateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="VRN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VYN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IB" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_R" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_Y" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="W_B" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VA_R" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VA_Y" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VA_B" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_R" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_Y" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAR_B" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RY" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="YB" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BR" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="F" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="KWH" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="KVAH" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFR" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PFY" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PFB" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PA1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PA2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PA3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VSM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="IAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ISM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="W_AV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="W_SM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VAAVG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VASM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFAV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PFSM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PAAV" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PASM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="deviceID" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI5" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI6" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI7" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AI8" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI5" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI6" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI7" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DI8" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO3" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DO4" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="KW" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KVA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KVAR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="500" />
+  </ComplexType>
+</Schema>
